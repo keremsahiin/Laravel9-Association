@@ -1,11 +1,12 @@
 @extends('layouts.frontbase')
 
 @section('title', 'Association Project')
-
+@section('sidebar')
+    @include('home.sidebar')
+@endsection
 @section('slider')
     @include('home.slider')
 @endsection
-
 @section('content')
     <!-- Video Modal Start-->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +152,7 @@
 
 
     <!-- Facts Start -->
-    <div class="facts" data-parallax="scroll" data-image-src="{{asset('assets')}}/img/facts.jpg">
+    <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -702,12 +703,5 @@
         </div>
     </div>
     <!-- Blog End -->
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- Pre Loader -->
-    <div id="loader" class="show">
-        <div class="loader"></div>
-    </div>
 
 @endsection

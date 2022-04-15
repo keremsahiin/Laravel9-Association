@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>@yield("title")</title>
-
+    <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
@@ -22,25 +21,29 @@
     <link href="{{asset('assets')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('assets')}}css/style.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
     @yield("head")
 </head>
-
 <body>
-@include("home.header")
+<!-- Pre Loader -->
+<div id="loader" class="show">
+    <div class="loader"></div>
+</div>
 
+@include('home.header')
+
+@include('home.sidebar')
 @section('sidebar')
-    @include("home.sidebar")
 @show
 
 @section('slider')
-
 @show
 
 @yield('content')
 
 
-<@include("home.footer")
+@include('home.footer')
 @yield('foot')
 </body>
+
 </html>
