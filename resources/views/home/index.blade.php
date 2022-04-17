@@ -1,9 +1,13 @@
 @extends('layouts.frontbase')
 
 @section('title', 'Association Project')
+
+
 @section('sidebar')
     @include('home.sidebar')
 @endsection
+
+
 @section('slider')
     @include('home.slider')
 @endsection
