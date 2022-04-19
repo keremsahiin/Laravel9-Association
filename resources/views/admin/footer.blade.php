@@ -1,14 +1,15 @@
-<!-- footer content -->
-<footer>
-    <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-    </div>
-    <div class="clearfix"></div>
-</footer>
-<!-- /footer content -->
+<div class="container body">
+    <div class="main_container">
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
 </div>
 </div>
-
 <!-- jQuery -->
 <script src="{{asset('assets')}}/admin/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->

@@ -3,6 +3,8 @@
 @section('title', 'Admin Panel')
 
 @section('content')
+<div class="container body">
+  <div class="main_container">
     <!-- page content -->
     <div class="right_col" role="main">
         <div class="">
@@ -54,4 +56,6 @@
         </div>
     </div>
     <!-- /page content -->
+    </div>
+</div>
 @endsection
