@@ -45,5 +45,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //********************ADMİN PANEL ROUTES ******************
 Route::get('/admin',[AdminHomeController::class , 'index'])->name('admin');
+//********************ADMİN CONTENT ROUTES ******************
+Route::get('/admin/content',[\App\Http\Controllers\AdminPanel\ContentController::class, 'index'])->name('admin_content');
+Route::get('/admin/content/create',[\App\Http\Controllers\AdminPanel\ContentController::class, 'create'])->name('admin_content_create');
+
 
 
