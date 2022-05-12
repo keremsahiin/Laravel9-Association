@@ -52,6 +52,8 @@ Route::get('/admin/menu/create',[AdminMenuController::class, 'create'])->name('a
 Route::post('/admin/menu/store',[AdminMenuController::class, 'store'])->name('admin_menu_store');
 Route::get('/admin/menu/edit/{id}',[AdminMenuController::class, 'edit'])->name('admin_menu_edit');
 Route::post('/admin/menu/update/{id}',[AdminMenuController::class, 'update'])->name('admin_menu_update');
+Route::get('/admin/menu/destroy/{id}',[AdminMenuController::class, 'destroy'])->name('admin_menu_destroy');
+Route::get('/admin/menu/show/{id}',[AdminMenuController::class, 'show'])->name('admin_menu_show');
 
 
 
