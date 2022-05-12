@@ -73,9 +73,9 @@
                                             <td>{{$rs->description}}</td>
                                             <td>{{$rs->status}}</td>
                                             <td>{{$rs->image}}</td>
-                                            <td><a href="/admin/menu/edit{{$rs->id}}" class="btn btn-primary" >Edit</a>  </td>
-                                            <td><a href="/admin/menu/delete{{$rs->id}}" class="btn btn-danger">Delete</a></td>
-                                            <td><a href="/admin/menu/show{{$rs->id}}"class="btn btn-success">Show</a></td>
+                                            <td><a href="/admin/menu/edit/{{$rs->id}}" class="btn btn-primary" >Edit</a>  </td>
+                                            <td><a href="/admin/menu/delete/{{$rs->id}}" class="btn btn-danger">Delete</a></td>
+                                            <td><a href="/admin/menu/show/{{$rs->id}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>
