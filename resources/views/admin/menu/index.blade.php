@@ -10,7 +10,9 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Menu List</h3>
+                            <a href="/admin/menu/create" class="btn btn-secondary btn-lg" >Add Menu
+
+                            </a>
                         </div>
 
                         <div class="title_right">
