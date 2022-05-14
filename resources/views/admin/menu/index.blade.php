@@ -10,9 +10,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <a href="/admin/menu/create" class="btn btn-secondary btn-lg" >Add Menu
-
-                            </a>
+                            <a href="{{route('admin.menu.create')}}" class="btn btn-secondary btn-lg" >Add Menu</a>
                         </div>
 
                         <div class="title_right">
@@ -75,9 +73,10 @@
                                             <td>{{$rs->description}}</td>
                                             <td>{{$rs->status}}</td>
                                             <td>{{$rs->image}}</td>
-                                            <td><a href="/admin/menu/edit/{{$rs->id}}" class="btn btn-primary" >Edit</a>  </td>
-                                            <td><a href="/admin/menu/delete/{{$rs->id}}" class="btn btn-danger">Delete</a></td>
-                                            <td><a href="/admin/menu/show/{{$rs->id}}"class="btn btn-success">Show</a></td>
+                                            <td><a href="{{route('admin.menu.edit',['id'=>$rs->id])}}" class="btn btn-primary" >Edit</a>  </td>
+                                            <td> <a href="{{route('admin.menu.destroy',['id'=>$rs->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-danger"
+                                                >Delete</a> </td>
+                                            <td><a href="{{route('admin.menu.show',['id'=>$rs->id])}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

@@ -10,7 +10,8 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Show Menu : {{$data->title}}</h3>
+                            <a href="{{route('admin.menu.edit',['id'=>$data->id])}}" class="btn btn-primary btn-lg" >Edit</a>
+                            <a href="{{route('admin.menu.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')"  class="btn btn-danger btn-lg" >Delete</a>
                         </div>
 
                         <div class="title_right">
@@ -30,7 +31,7 @@
                     <div class="col-md-12 col-sm-12  ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Show Menu Table </h2>
+                                <h2>Detail Data </h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -49,34 +50,40 @@
                             <div class="x_content">
 
                                 <table class="table table-bordered">
-                                    <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th>Id</th>
+                                        <td>{{$data->id}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
+                                        <th>Title</th>
+                                        <td>{{$data->title}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <th>Keywords</th>
+                                        <td>{{$data->keywords}}</td>
                                     </tr>
-                                    </tbody>
+                                    <tr>
+                                        <th>Description</th>
+                                        <td>{{$data->description}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>{{$data->status}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Image</th>
+                                        <td>{{$data->image}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Created Date</th>
+                                        <td>{{$data->created_at}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Update Date</th>
+                                        <td>{{$data->updated_at}}</td>
+                                    </tr>
+
+
                                 </table>
 
                             </div>

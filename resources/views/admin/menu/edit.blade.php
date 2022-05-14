@@ -36,7 +36,7 @@
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="/admin" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <a href="{{route('admin.index')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a class="dropdown-item" href="#">Settings 1</a>
                                                 </li>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="x_content">
                                     <br>
-                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="/admin/menu/update/{{$data->id}}" method="post">
+                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.update',['id'=>$data->id])}}" method="post">
                                         @csrf
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title<span class="required"></span>

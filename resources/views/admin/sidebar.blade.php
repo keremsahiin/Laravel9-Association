@@ -29,7 +29,7 @@
                         <h3>General</h3>
                         <ul class="nav side-menu">
                             </li>
-                            <li class="nav-item"> <a href="admin/menu" class="nav-link"><i class="fa fa-home text-danger"></i>Dashboard</a>
+                            <li class="nav-item"> <a href="/admin" class="nav-link"><i class="fa fa-home text-danger"></i>Dashboard</a>
                             </li>
                             <li><a><i class="fa fa-money text-success"></i>Payment<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -60,7 +60,7 @@
 
                             <li><a><i class="fa fa-gears text-danger"></i>Layouts <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="fixed_sidebar.html">Settings</a></li>
+                                    <li><a href="admin/setting">Settings</a></li>
                                 </ul>
                             </li>
                         </ul>
