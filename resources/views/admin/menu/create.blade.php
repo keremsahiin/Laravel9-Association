@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="x_content">
                                     <br>
-                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.store')}}" method="post">
+                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.store')}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title<span class="required"></span>
