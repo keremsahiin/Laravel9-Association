@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Menu List')
+@section('title', 'Content List')
 
 @section('content')
     <div class="container body">
@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <a href="{{route('admin.menu.create')}}" class="btn btn-secondary btn-lg" >Add Menu</a>
+                            <a href="{{route('admin.content.create')}}" class="btn btn-secondary btn-lg" >Add Content</a>
                         </div>
 
                         <div class="title_right">
@@ -31,7 +31,7 @@
                         <div class="col-md-12 col-sm-12  ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Menu List <small>Menu List subtitle</small></h2>
+                                    <h2>Content List <small>Content List subtitle</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -53,8 +53,11 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Parent</th>
+                                            <th>Menu</th>
                                             <th>Title</th>
+                                            <th>Detail</th>
+                                            <th>Date</th>
+                                            <th>Type</th>
                                             <th>Status</th>
                                             <th>Image</th>
                                             <th>Edit</th>
@@ -69,16 +72,19 @@
                                             <td scope="row">{{$rs->id}} </td>
                                             <td> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </td>
                                             <td>{{$rs->title}} </td>
+                                            <td>{{$rs->description}} </td>
+                                            <td>{{$rs->date}} </td>
+                                            <td>{{$rs->type}} </td>
                                             <td>{{$rs->status}} </td>
                                             <td>
                                                 @if($rs->image)
                                                 <img src="{{Storage::url($rs->image)}}" style="height: 40px" >
                                                 @endif
                                             </td>
-                                            <td><a href="{{route('admin.menu.edit',['id'=>$rs->id])}}" class="btn btn-primary" >Edit</a>  </td>
-                                            <td> <a href="{{route('admin.menu.destroy',['id'=>$rs->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-danger"
+                                            <td><a href="{{route('admin.content.edit',['id'=>$rs->id])}}" class="btn btn-primary" >Edit</a>  </td>
+                                            <td> <a href="{{route('admin.content.destroy',['id'=>$rs->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-danger"
                                                 >Delete</a> </td>
-                                            <td><a href="{{route('admin.menu.show',['id'=>$rs->id])}}"class="btn btn-success">Show</a></td>
+                                            <td><a href="{{route('admin.content.show',['id'=>$rs->id])}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>
