@@ -54,13 +54,21 @@
                                     <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.store')}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title<span class="required"></span>
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Parent Menu<span class="required"></span> </label>
+                                            <select class="form-control select2" name="parent_id" style="">
+                                                <option value="0" selected="selected">Main Menu</option>
+                                                @foreach($data as $rs)
+                                                    <option value="{{ $rs->id }}"> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Title<span class="required"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 ">
                                                 <input type="text" name="title" class="form-control" placeholder="Title">
                                             </div>
                                         </div>
-
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Keywords<span class="required"></span>
                                             </label>

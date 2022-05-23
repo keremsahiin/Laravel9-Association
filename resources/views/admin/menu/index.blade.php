@@ -53,9 +53,8 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Parent</th>
                                             <th>Title</th>
-                                            <th>Keywords</th>
-                                            <th>Description</th>
                                             <th>Status</th>
                                             <th>Image</th>
                                             <th>Edit</th>
@@ -67,11 +66,10 @@
                                         <tbody>
                                         @foreach( $data as $rs)
                                         <tr>
-                                            <th scope="row">{{$rs->id}}</th>
-                                            <td>{{$rs->title}}</td>
-                                            <td>{{$rs->keywords}}</td>
-                                            <td>{{$rs->description}}</td>
-                                            <td>{{$rs->status}}</td>
+                                            <td scope="row">{{$rs->id}} </td>
+                                            <td> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs, $rs->title) }} </td>
+                                            <td>{{$rs->title}} </td>
+                                            <td>{{$rs->status}} </td>
                                             <td>
                                                 @if($rs->image)
                                                 <img src="{{Storage::url($rs->image)}}" style="height: 40px" >
