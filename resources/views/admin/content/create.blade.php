@@ -77,13 +77,6 @@
                                                 </select>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Type<span class="required"></span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 ">
-                                                <input type="text" name="type" class="form-control" placeholder="Type" value="0">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>
                                             </label>
                                             <textarea class="form-control" name="detail">

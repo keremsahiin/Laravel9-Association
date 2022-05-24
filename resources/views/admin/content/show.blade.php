@@ -59,10 +59,6 @@
                                         <td>{{$data->title}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Type</th>
-                                        <td>{{$data->type}}</td>
-                                    </tr>
-                                    <tr>
                                         <th>Detail</th>
                                         <td>{{$data->detail}}</td>
                                     </tr>

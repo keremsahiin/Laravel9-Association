@@ -55,7 +55,6 @@
                                             <th>Id</th>
                                             <th>Menu</th>
                                             <th>Title</th>
-                                            <th>Type</th>
                                             <th>Status</th>
                                             <th>Image</th>
                                             <th>Edit</th>
@@ -70,7 +69,6 @@
                                             <td scope="row">{{$rs->id}} </td>
                                             <td> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </td>
                                             <td>{{$rs->title}} </td>
-                                            <td>{{$rs->type}} </td>
                                             <td>{{$rs->status}} </td>
                                             <td>
                                                 @if($rs->image)

@@ -72,7 +72,10 @@
                                     </tr>
                                     <tr>
                                         <th>Image</th>
-                                        <td>{{$data->image}}</td>
+                                        <td>
+                                            @if($data->image)
+                                                <img src="{{Storage::url($data->image)}}" style="height: 40px" >
+                                            @endif</td>
                                     </tr>
                                     <tr>
                                         <th>Created Date</th>
