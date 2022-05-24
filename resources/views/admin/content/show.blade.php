@@ -55,6 +55,10 @@
                                         <td>{{$data->id}}</td>
                                     </tr>
                                     <tr>
+                                        <th>Menu</th>
+                                        <td>{{$data->menu_id}} </td>
+                                    </tr>
+                                    <tr>
                                         <th>Title</th>
                                         <td>{{$data->title}}</td>
                                     </tr>
