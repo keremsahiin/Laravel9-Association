@@ -1,9 +1,5 @@
-@extends('layouts.adminbase')
 
-@section('title', 'Content List')
-
-@section('content')
-    <div class="container body">
+<div class="container body">
         <div class="main_container">
             <!-- page content -->
             <div class="right_col" role="main">
@@ -31,7 +27,7 @@
                         <div class="col-md-12 col-sm-12  ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Content List <small>Content List subtitle</small></h2>
+                                    <h2>Content Image List <small>Content List subtitle</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -53,14 +49,10 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Menu</th>
                                             <th>Title</th>
-                                            <th>Status</th>
                                             <th>Image</th>
-                                            <th>Image Gallery</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
-                                            <th>Show</th>
 
                                         </tr>
                                         </thead>
@@ -68,18 +60,14 @@
                                         @foreach( $data as $rs)
                                         <tr>
                                             <td scope="row">{{$rs->id}} </td>
-                                            <td> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </td>
                                             <td>{{$rs->title}} </td>
-                                            <td>{{$rs->status}} </td>
                                             <td>
                                                 @if($rs->image)
                                                 <img src="{{Storage::url($rs->image)}}" style="height: 40px" >
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{route('admin.image.index',['pid'=>$rs->id])}}">
                                                 <img src="{{asset('assets')}}/admin/images/download.png" style="height: 40px" alt="">
-                                                </a>
                                             </td>
                                             <td><a href="{{route('admin.content.edit',['id'=>$rs->id])}}" class="btn btn-primary" >Edit</a>  </td>
                                             <td> <a href="{{route('admin.content.destroy',['id'=>$rs->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-danger"
@@ -98,4 +86,4 @@
             <!-- /page content -->
         </div>
     </div>
-@endsection
+
