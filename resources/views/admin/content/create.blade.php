@@ -55,7 +55,7 @@
                                         @csrf
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Parent Content<span class="required"></span> </label>
-                                            <select class="form-control select2" name="parent_id" style="">
+                                            <select class="form-control select2" name="menu_id" style="">
                                                 @foreach($data as $rs)
                                                     <option value="{{ $rs->id }}"> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </option>
                                                 @endforeach
@@ -69,26 +69,19 @@
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Date<span class="required"></span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 ">
-                                                <input type="text" name="date" class="form-control" placeholder="Date">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Type<span class="required"></span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 ">
-                                                <input type="text" name="type" class="form-control" placeholder="Type">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status<span class="required"></span>
                                             </label>
                                                 <select class="form-control" name="status">
                                                     <option>TRUE</option>
                                                     <option>FALSE</option>
                                                 </select>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Type<span class="required"></span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" name="type" class="form-control" placeholder="Type" value="0">
+                                            </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>

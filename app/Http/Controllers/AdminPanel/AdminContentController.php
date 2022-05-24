@@ -57,17 +57,12 @@ class AdminContentController extends Controller
     {
         $data = new Content();
         $data->menu_id = $request->menu_id;
-        $data->user_id = $request->user_id;
+        $data->user_id = 0; //$request->user_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         $data->detail = $request->detail;
-        $data->causes = $request->causes;
-        $data->anounce = $request->anounce;
-        $data->news = $request->news;
-        $data->blog = $request->blog;
-        $data->volunteer = $request->volunteer;
-        $data->donate = $request->donate;
+        $data->type = $request->type;
         $data->status = $request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('images');
@@ -122,19 +117,12 @@ class AdminContentController extends Controller
         //
         $data= Content::find($id);
         $data->menu_id = $request->menu_id;
-        $data->user_id = $request->user_id;
+        $data->user_id = 0; //$request->user_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->date = $request->date;
-        $data->type = $request->type;
         $data->detail = $request->detail;
-        $data->causes = $request->causes;
-        $data->anounce = $request->anounce;
-        $data->news = $request->news;
-        $data->blog = $request->blog;
-        $data->volunteer = $request->volunteer;
-        $data->donate = $request->donate;
+        $data->type = $request->type;
         $data->status = $request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('images');
@@ -154,7 +142,9 @@ class AdminContentController extends Controller
     {
         //
         $data = Content::find($id);
-        Storage::delete($data->image);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
         $data->delete();
         return redirect('/admin/content');
     }

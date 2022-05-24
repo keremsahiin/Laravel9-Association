@@ -55,8 +55,6 @@
                                             <th>Id</th>
                                             <th>Menu</th>
                                             <th>Title</th>
-                                            <th>Detail</th>
-                                            <th>Date</th>
                                             <th>Type</th>
                                             <th>Status</th>
                                             <th>Image</th>
@@ -72,8 +70,6 @@
                                             <td scope="row">{{$rs->id}} </td>
                                             <td> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </td>
                                             <td>{{$rs->title}} </td>
-                                            <td>{{$rs->description}} </td>
-                                            <td>{{$rs->date}} </td>
                                             <td>{{$rs->type}} </td>
                                             <td>{{$rs->status}} </td>
                                             <td>
