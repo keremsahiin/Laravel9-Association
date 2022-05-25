@@ -1,6 +1,11 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Edit Content :'.$data->title)
+@section('head')
+    <!-- include summernote css/js --->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
     <div class="container body">
@@ -73,8 +78,19 @@
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>
                                             </label>
-                                            <textarea class="form-control" name="detail">{{$data->detail}}
+                                            <textarea class="form-control" id ="detail" name="detail">
+                                                {{$data->title}}
                                             </textarea>
+                                            <script>
+                                                ClassicEditor
+                                                    .create( document.querySelector('#detail'))
+                                                    .then( editor => {
+                                                        console.log( editor );
+                                                    } )
+                                                    .catch( error => {
+                                                        console.error( error );
+                                                    })
+                                            </script>
                                         </div>
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status<span class="required"></span>   </label>
@@ -114,5 +130,14 @@
     <!-- /page content -->
     </div>
     </div>
+@endsection
+@section('foot')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(function () {
+            // Summernote
+            $('.textarea').summernote()
+        })
+    </script>
 @endsection
 

@@ -1,6 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Add Content')
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
     <div class="container body">
@@ -79,9 +82,19 @@
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>
                                             </label>
-                                            <textarea class="form-control" name="detail">
+                                            <textarea class="form-control" id ="detail" name="detail">
 
                                             </textarea>
+                                            <script>
+                                             ClassicEditor
+                                                .create( document.querySelector('#detail'))
+                                                .then( editor => {
+                                                        console.log( editor );
+                                                } )
+                                                .catch( error => {
+                                                    console.error( error );
+                                                })
+                                            </script>
                                         </div>
 
                                         <div class="item form-group">
