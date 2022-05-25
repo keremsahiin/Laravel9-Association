@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Edit Content :'.$data->title)
+@section('title', 'Edit Menu :'.$data->title)
 
 @section('content')
     <div class="container body">
@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Edit Content : {{$data->title}}</h3>
+                            <h3>Edit Menu : {{$data->title}}</h3>
                         </div>
 
                         <div class="title_right">
@@ -31,7 +31,7 @@
                         <div class="col-md-12 col-sm-12 ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Edit Content Elements <small>different edit elements</small></h2>
+                                    <h2>Edit Menu Elements <small>different edit elements</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -51,14 +51,14 @@
                                 </div>
                                 <div class="x_content">
                                     <br>
-                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.content.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Parent Menu<span class="required"></span> </label>
-                                            <select class="form-control select2" name="menu_id" style="">
-                                                <option value="0" selected="selected">Main Content</option>
+                                            <select class="form-control select2" name="parent_id" style="">
+                                                <option value="0" selected="selected">Main Menu</option>
                                                 @foreach($datalist as $rs)
-                                                    <option value="{{ $rs->id }}" @if($rs->id == $data->menu_id) selected="selected" @endif>
+                                                    <option value="{{ $rs->id }}" @if($rs->id == $data->parent_id) selected="selected" @endif>
                                                         {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </option>
                                                 @endforeach
                                             </select>
@@ -70,12 +70,22 @@
                                                 <input type="text" name="title" class="form-control" value="{{$data->title}}">
                                             </div>
                                         </div>
+
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Keywords<span class="required"></span>
                                             </label>
-                                            <textarea class="form-control" name="detail">{{$data->detail}}
-                                            </textarea>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" name="keywords" class="form-control" value="{{$data->keywords}}">
+                                            </div>
                                         </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description<span class="required"></span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" name="description" class="form-control" value="{{$data->description}}">
+                                            </div>
+                                        </div>
+
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status<span class="required"></span>   </label>
                                                 <select class="form-control" name="status">

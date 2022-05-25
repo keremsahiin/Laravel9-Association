@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Show Content :'.$data->title)
+@section('title', 'Show Menu :'.$data->title)
 
 @section('content')
     <div class="container body">
@@ -10,8 +10,8 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <a href="{{route('admin.content.edit',['id'=>$data->id])}}" class="btn btn-primary btn-lg" >Edit</a>
-                            <a href="{{route('admin.content.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')"  class="btn btn-danger btn-lg" >Delete</a>
+                            <a href="{{route('admin.menu.edit',['id'=>$data->id])}}" class="btn btn-primary btn-lg" >Edit</a>
+                            <a href="{{route('admin.menu.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')"  class="btn btn-danger btn-lg" >Delete</a>
                         </div>
 
                         <div class="title_right">
@@ -55,16 +55,16 @@
                                         <td>{{$data->id}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Menu</th>
-                                        <td>{{$data->menu_id}} </td>
-                                    </tr>
-                                    <tr>
                                         <th>Title</th>
                                         <td>{{$data->title}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Detail</th>
-                                        <td>{{$data->detail}}</td>
+                                        <th>Keywords</th>
+                                        <td>{{$data->keywords}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description</th>
+                                        <td>{{$data->description}}</td>
                                     </tr>
                                     <tr>
                                         <th>Status</th>
@@ -75,9 +75,7 @@
                                         <td>
                                             @if($data->image)
                                                 <img src="{{Storage::url($data->image)}}" style="height: 40px" >
-                                            @endif
-                                        </td>
-
+                                            @endif</td>
                                     </tr>
                                     <tr>
                                         <th>Created Date</th>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminContentController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -46,7 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //********************ADMİN PANEL ROUTES ******************
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->group(callback: function () {
     Route::get('/',[AdminHomeController::class, 'index'])->name('index');
 //********************ADMİN MENU ROUTES ******************
     Route::prefix('/menu')->name('menu.')->controller(AdminMenuController::class)->group(function (){
@@ -69,14 +70,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
     });
-    //********************ADMİN IMAGE GALLERY  ROUTES ******************
+
+    //********************ADMİN CONTENT IMAGE GALLERY ROUTES ******************
     Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function (){
         Route::get('/{pid}','index')->name('index');
-        Route::get('/create/{pid}','create')->name('create');
         Route::post('/store/{pid}','store')->name('store');
-        Route::post('/update/{pid}/{id}','update')->name('update');
         Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
     });
+
 });
 
 

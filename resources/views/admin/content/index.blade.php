@@ -77,7 +77,8 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{route('admin.image.index',['pid'=>$rs->id])}}">
+                                                <a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
+                                                onclick="return !window.open(this.href, ' ',' top=50 left=100 width=1100,height=700' )">
                                                 <img src="{{asset('assets')}}/admin/images/download.png" style="height: 40px" alt="">
                                                 </a>
                                             </td>

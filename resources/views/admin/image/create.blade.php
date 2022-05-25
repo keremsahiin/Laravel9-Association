@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Content')
+@section('title', 'Add Menu')
 
 @section('content')
     <div class="container body">
@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Add Content</h3>
+                            <h3>Add Menu</h3>
                         </div>
 
                         <div class="title_right">
@@ -31,7 +31,7 @@
                         <div class="col-md-12 col-sm-12 ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Content Elements <small>different Content elements</small></h2>
+                                    <h2>Menu Elements <small>different menu elements</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -51,11 +51,12 @@
                                 </div>
                                 <div class="x_content">
                                     <br>
-                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.content.store')}}" method="post" enctype="multipart/form-data">
+                                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" role="form" action="{{route('admin.menu.store')}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Parent Content<span class="required"></span> </label>
-                                            <select class="form-control select2" name="menu_id" style="">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Parent Menu<span class="required"></span> </label>
+                                            <select class="form-control select2" name="parent_id" style="">
+                                                <option value="0" selected="selected">Main Menu</option>
                                                 @foreach($data as $rs)
                                                     <option value="{{ $rs->id }}"> {{ \App\Http\Controllers\AdminPanel\MenuController::getParentsTree($rs , $rs->title) }} </option>
                                                 @endforeach
@@ -69,19 +70,26 @@
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status<span class="required"></span>
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Keywords<span class="required"></span>
                                             </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" name="keywords" class="form-control" placeholder="Keywords">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description<span class="required"></span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" name="description" class="form-control" placeholder="Description">
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status<span class="required"></span>   </label>
                                                 <select class="form-control" name="status">
                                                     <option>TRUE</option>
                                                     <option>FALSE</option>
                                                 </select>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Detail<span class="required"></span>
-                                            </label>
-                                            <textarea class="form-control" name="detail">
-
-                                            </textarea>
                                         </div>
 
                                         <div class="item form-group">
