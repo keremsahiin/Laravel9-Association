@@ -11,6 +11,7 @@
 @section('slider')
     @include('home.slider')
 @endsection
+
 @section('content')
     <!-- Video Modal Start-->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
