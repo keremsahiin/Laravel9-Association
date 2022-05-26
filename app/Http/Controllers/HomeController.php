@@ -4,18 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\BaseResult;
 
 class HomeController extends Controller
 {
     //
     public function index(){
+        $page='home';
         $sliderdata=Content::limit(4)->get();
         $contentlist1=Content::limit(1)->get();
         return view('home.index',[
+            'page'=>$page,
             'sliderdata'=>$sliderdata,
             'contentlist1'=>$contentlist1
 
+        ]);
+    }
+
+    public function content($id){
+
+        $data=Content::find($id);
+        $images = DB::table('images')->where('content_id', $id)->get();
+        return view('home.content',[
+            'data'=>$data,
+            'images'=>$images
         ]);
     }
 

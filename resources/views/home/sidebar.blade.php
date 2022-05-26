@@ -14,7 +14,7 @@
                 <a href="event.html" class="nav-item nav-link">Events</a>
                 <a href="blog.html" class="nav-item nav-link">Blog</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link @if (!@isset($page)) dropdown-toggle @endif " data-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu">
                         <a href="single.html" class="dropdown-item">Detail Page</a>
                         <a href="service.html" class="dropdown-item">What We Do</a>

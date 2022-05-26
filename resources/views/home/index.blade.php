@@ -38,7 +38,7 @@
             <div class="row align-items-center">
                 @foreach($contentlist1 as $rs)
                 <div class="col-lg-6">
-                    <div class="about-img" data-parallax="scroll" data-image-src="{{Storage::url($rs->image)}}" style="height: 169px; width: 299px"></div>
+                    <div class="about-img" data-parallax="scroll" data-image-src="{{Storage::url($rs->image)}}" style="height: 400px; width: 550px"></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="section-header">

@@ -39,6 +39,8 @@ Route::get('/parameter/{id}/{number}',[HomeController::class,'parameter'])->name
 // 6- Route with post
 Route::post('/save',[HomeController::class,'save'])->name('save');
 
+Route::get('/content/{id}',[HomeController::class,'content'])->name('content');
+
 
 
 
