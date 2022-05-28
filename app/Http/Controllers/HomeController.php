@@ -42,13 +42,12 @@ class HomeController extends Controller
     }
 
     public function menucontents($id){
-        echo "menu contents";
-        exit();
-        $data=Content::find($id);
-        $images = DB::table('images')->where('content_id', $id)->get();
-        return view('home.content',[
-            'data'=>$data,
-            'images'=>$images
+
+        $menu=Menu::find($id);
+        $contents = DB::table('contents')->where('menu_id', $id)->get();
+        return view('home.menucontents',[
+            'menu'=>$menu,
+            'contents'=>$contents
         ]);
     }
 

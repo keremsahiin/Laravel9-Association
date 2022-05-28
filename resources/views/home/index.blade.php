@@ -38,12 +38,12 @@
             <div class="row align-items-center">
                 @foreach($contentlist1 as $rs)
                 <div class="col-lg-6">
-                    <div class="about-img" data-parallax="scroll" data-image-src="{{Storage::url($rs->image)}}" style="height: 400px; width: 550px"></div>
+                    <div <a href="{{route('content',['id'=>$rs->id])}}" class="about-img" data-parallax="scroll" data-image-src="{{Storage::url($rs->image)}}" style="height: 400px; width: 550px"></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="section-header">
-                        <p>{{$rs->title}}</p>
-                        <h2>{{$rs->title}}</h2>
+                        <p>{{ $rs->title }}</p>
+                        <h2>{{ $rs->title }}</h2>
                     </div>
                     <div class="about-tab">
                         <ul class="nav nav-pills nav-justified">
@@ -60,13 +60,13 @@
 
                         <div class="tab-content">
                             <div id="tab-content-1" class="container tab-pane active">
-                                {{$rs->detail}}
+                                {!!$rs->detail!!}
                             </div>
                             <div id="tab-content-2" class="container tab-pane fade">
-                                {{$rs->detail}}
+                                {!!$rs->detail!!}
                             </div>
                             <div id="tab-content-3" class="container tab-pane fade">
-                                {{$rs->detail}}
+                                {!!$rs->detail!!}
                             </div>
                         </div>
                     </div>

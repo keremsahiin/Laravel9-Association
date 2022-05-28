@@ -2,13 +2,6 @@
 
 @section('title', $data->title )
 
-
-@section('sidebar')
-    @include('home.sidebar')
-@endsection
-
-
-
 @section('content')
 
     <!-- Page Header Start -->
