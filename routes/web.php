@@ -40,6 +40,7 @@ Route::get('/parameter/{id}/{number}',[HomeController::class,'parameter'])->name
 Route::post('/save',[HomeController::class,'save'])->name('save');
 
 Route::get('/content/{id}',[HomeController::class,'content'])->name('content');
+Route::get('/menucontents/{id}/{slug}',[HomeController::class,'menucontents'])->name('menucontents');
 
 
 

@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\BaseResult;
 
 class HomeController extends Controller
 {
+
+    public static function mainMenulist(){
+
+        return Menu::where('parent_id' , '=' , 0)->with('children')->get();
+
+
+    }
     //
+
     public function index(){
         $page='home';
         $sliderdata=Content::limit(4)->get();
@@ -24,6 +33,17 @@ class HomeController extends Controller
 
     public function content($id){
 
+        $data=Content::find($id);
+        $images = DB::table('images')->where('content_id', $id)->get();
+        return view('home.content',[
+            'data'=>$data,
+            'images'=>$images
+        ]);
+    }
+
+    public function menucontents($id){
+        echo "menu contents";
+        exit();
         $data=Content::find($id);
         $images = DB::table('images')->where('content_id', $id)->get();
         return view('home.content',[
