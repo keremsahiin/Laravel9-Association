@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
+    <meta name="author" content="KEREM ŞAHİN">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="@yield("keywords")" name="keywords">
+    <meta content="@yield("description")" name="description">
+    <link href="@yield("icon")" rel="icon" type="image/x-icon">
 
     <!-- Favicon -->
     <link href="{{asset('assets')}}/img/favicon.ico" rel="icon">

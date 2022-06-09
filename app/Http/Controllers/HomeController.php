@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use App\Models\Menu;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\BaseResult;
@@ -23,8 +24,10 @@ class HomeController extends Controller
         $page='home';
         $sliderdata=Content::limit(4)->get();
         $contentlist1=Content::limit(1)->get();
+        $setting = Setting::first();
         return view('home.index',[
             'page'=>$page,
+            'setting'=>$setting,
             'sliderdata'=>$sliderdata,
             'contentlist1'=>$contentlist1
 

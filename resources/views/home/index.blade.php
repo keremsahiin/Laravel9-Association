@@ -1,6 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title', 'Association Project')
+@section('title', $setting->title)
+@section('keywords', $setting->keywords)
+@section('description', $setting->description)
+@section('icon', \Illuminate\Support\Facades\Storage::url($setting->icon))
 
 
 @section('sidebar')
