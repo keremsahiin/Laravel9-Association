@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Content;
 use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Message;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\BaseResult;
 
@@ -84,14 +86,30 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('info','Your message has been sent , Thank you.');
 
     }
+    public function storecomment(Request $request){
+        // dd($request); // Chech your values
+        $data = new Comment();
+        $data->user_id = Auth::id(); // Logged in user id
+        $data->content_id = $request->input('content_id');
+        $data->subject = $request->input('subject');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+
+        return redirect()->route('content',['id'=>$request->input('content_id')])->with('success','Your comment has been sent , Thank you.');
+
+    }
 
     public function content($id){
 
         $data=Content::find($id);
+        $comments = Comment::where('content_id',$id)->where('status','True')->get();
         $images = DB::table('images')->where('content_id', $id)->get();
         return view('home.content',[
             'data'=>$data,
-            'images'=>$images
+            'images'=>$images,
+            'comments'=>$comments
         ]);
     }
 

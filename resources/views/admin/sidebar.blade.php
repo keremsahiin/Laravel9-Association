@@ -43,7 +43,7 @@
                             <li class="nav-item"> <a href="{{route('admin.content.index')}}" class="nav-link"><i class="fa fa-folder text-warning"></i>Contents</a>
                             </li>
 
-                            <li class="nav-item"> <a href="admin/comment" class="nav-link"><i class="fa fa-comment text-warning"></i>Comments</a>
+                            <li class="nav-item"> <a href="{{route('admin.comment.index')}}" class="nav-link"><i class="fa fa-comment text-warning"></i>Comments</a>
                             </li>
 
                             <li class="nav-item"> <a href="{{route('admin.faq.index')}}" class="nav-link"><i class="fa fa-question text-warning"></i>FAQ</a>
@@ -60,7 +60,7 @@
 
                             <li><a><i class="fa fa-gears text-danger"></i>Layouts <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="admin/setting">Settings</a></li>
+                                    <li><a href="{{route('admin.setting')}}">Settings</a></li>
                                 </ul>
                             </li>
                         </ul>

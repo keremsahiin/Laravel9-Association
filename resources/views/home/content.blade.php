@@ -195,75 +195,68 @@
         </div>
     </div>
     <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="testimonial">
+    <div class="single">
         <div class="container">
-            <div class="section-header text-center">
-                <p>Testimonial</p>
-                <h2>What people are talking about our charity activities</h2>
-            </div>
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="{{asset('assets')}}/img/testimonial-1.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
+            <div class="row">
+                <div class="col-lg-8">
+                    @foreach($comments as $rs)
+                        <div class="single-comment">
+                             <div class="comment-heading">
+                                 <div><a href="#"><i class="fa fa-user-o"></i>{{$rs->user->name}}</a></div>
+                                 <div><a href="#"><i class="fa fa-user-o"></i>{{$rs->created_at}}</a></div>
+                                 <div class="comment-rating pull-right">
+                                     <i class="fa fa-star @if($rs->rate<1) -o empty @endif"></i>
+                                     <i class="fa fa-star @if($rs->rate<2) -o empty @endif"></i>
+                                     <i class="fa fa-star @if($rs->rate<3) -o empty @endif"></i>
+                                     <i class="fa fa-star @if($rs->rate<4) -o empty @endif"></i>
+                                     <i class="fa fa-star @if($rs->rate<5) -o empty @endif"></i>
+                                 </div>
+                             </div>
+                            <div class="comment-body">
+                                <strong>{{$rs->subject}}</strong>
+                                <p>{{$rs->comments}}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="{{asset('assets')}}/img/testimonial-2.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="{{asset('assets')}}/img/testimonial-3.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="{{asset('assets')}}/img/testimonial-4.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
+                    @endforeach
+                    <div class="comment-form">
+                        @include('home.messages')
+                        <h2>Leave a comment</h2>
+                        <form action="{{route('storecomment')}}" method="post">
+                            @csrf
+                            <input type="hidden" class="input" name="content_id" value="{{$data->id}}">
+                            <div class="form-group">
+                                <label for="name">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Comment</label>
+                                <textarea id="comment" id="comment" name="comment" placeholder="Comment" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-rating">
+                                    <strong class="text-uppercase"> Your Rating (5-1): </strong>
+                                    <div class="stars">
+                                        <input type="radio" id="star5" name="rate" value="5" /> 5<label for="star5"></label>
+                                        <input type="radio" id="star4" name="rate" value="4" /> 4<label for="star4"></label>
+                                        <input type="radio" id="star3" name="rate" value="3" /> 3<label for="star3"></label>
+                                        <input type="radio" id="star2" name="rate" value="2" /> 2<label for="star2"></label>
+                                        <input type="radio" id="star1" name="rate" value="1" /> 1<label for="star1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            @auth()
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-custom">
+                            </div>
+                            @else
+                                <a href="/login" class="btn btn-custom">For Submit Your Review , Please Login</a>
+                            @endauth
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Testimonial End -->
+</div>
+
 
 @endsection
