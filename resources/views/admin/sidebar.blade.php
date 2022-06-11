@@ -46,7 +46,7 @@
                             <li class="nav-item"> <a href="admin/comment" class="nav-link"><i class="fa fa-comment text-warning"></i>Comments</a>
                             </li>
 
-                            <li class="nav-item"> <a href="admin/faq" class="nav-link"><i class="fa fa-question text-warning"></i>FAQ</a>
+                            <li class="nav-item"> <a href="{{route('admin.faq.index')}}" class="nav-link"><i class="fa fa-question text-warning"></i>FAQ</a>
                             </li>
 
                             <li class="nav-item"> <a href="{{route('admin.message.index')}}" class="nav-link"><i class="fa fa-paper-plane text-warning"></i>Messages</a>

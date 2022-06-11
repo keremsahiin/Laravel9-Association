@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Message;
 use App\Models\Setting;
@@ -55,6 +56,16 @@ class HomeController extends Controller
         $setting = Setting::first();
         return view('home.contact',[
             'setting'=>$setting
+
+        ]);
+    }
+    public function faq(){
+
+        $setting = Setting::first();
+        $datalist = Faq::all();
+        return view('home.faq',[
+            'setting'=>$setting,
+            'datalist'=>$datalist
 
         ]);
     }

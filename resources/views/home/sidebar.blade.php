@@ -53,6 +53,7 @@
                 <li><a href="{{route('home')}}" class="nav-item nav-link">Home</a></li>
                 <li><a href="{{route('about')}}" class="nav-item nav-link">About Us</a></li>
                 <li><a href="{{route('references')}}" class="nav-item nav-link">References</a></li>
+                <li><a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a></li>
                 <li><a href="{{route('contact')}}" class="nav-item nav-link">Contact</a></li>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
                     <span class="navbar-toggler-icon"></span>
