@@ -30,8 +30,20 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-header">
-                        <p>{{$data->title}}</p>
-                        <h2> {!!$data->detail!!} </h2>
+                        <h1>{{$data->title}}</h1>
+                    </div>
+                    <div>
+                        @php
+                            $average = $data->comment->average('rate');
+                        @endphp
+                        <div class="content-rating">
+                            <i class="fa fa-star @if($average<1) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<2) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<3) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<4) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<5) -o empty @endif"></i>
+                        </div>
+                        <a href="#">{{number_format($average,1)}}/{{$data->comment->count('id')}}  Average/Comment(s)</a>
                     </div>
                     <div class="about-tab">
                         <ul class="nav nav-pills nav-justified">
@@ -195,8 +207,10 @@
         </div>
     </div>
     <!-- Team End -->
+    <!--Comment Area-->
     <div class="single">
         <div class="container">
+            <h1><strong>Comments ({{$data->comment->count('id')}})</strong></h1>
             <div class="row">
                 <div class="col-lg-8">
                     @foreach($comments as $rs)

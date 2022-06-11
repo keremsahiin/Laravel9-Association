@@ -45,8 +45,21 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-header">
-                        <p>{{ $rs->title }}</p>
-                        <h2>{{ $rs->title }}</h2>
+                        <h1>{{ $rs->title }}</h1>
+                    </div>
+                    <div>
+                    @php
+                        $average = $rs->comment->average('rate');
+                    @endphp
+                        <div class="content-rating">
+                            <i class="fa fa-star @if($average<1) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<2) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<3) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<4) -o empty @endif"></i>
+                            <i class="fa fa-star @if($average<5) -o empty @endif"></i>
+                            ({{$rs->comment->count('id')}})
+                        </div>
+
                     </div>
                     <div class="about-tab">
                         <ul class="nav nav-pills nav-justified">
