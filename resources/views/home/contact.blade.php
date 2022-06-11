@@ -36,29 +36,28 @@
                 <img src="{{asset('assets')}}/img/contact.jpg" alt="Image">
             </div>
             <div class="contact-form">
-                <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name">
-                        <p class="help-block text-danger"></p>
+                @include('home.messages')
+                <form  id="checkout-form"  action="{{route("storemessage")}}" class="clearfix" method="post">
+                    @csrf
+                    <div class="form-item">
+                        <input type="name" class="form-control" id="name" name="name" placeholder="Name & Surname">
                     </div>
-                    <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email">
-                        <p class="help-block text-danger"></p>
+                    <div class="form-item"">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
                     </div>
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject">
-                        <p class="help-block text-danger"></p>
+                    <div class="form-item"">
+                        <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone Number">
                     </div>
-                    <div class="control-group">
-                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                    <div class="form-item"">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-item"">
+                        <textarea class="form-control"  type="text" id="message" name="message" placeholder="Message" ></textarea>
                     </div>
                     <div>
                         <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 

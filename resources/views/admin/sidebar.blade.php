@@ -3,7 +3,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="{{route('admin.index')}}" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -29,7 +29,7 @@
                         <h3>General</h3>
                         <ul class="nav side-menu">
                             </li>
-                            <li class="nav-item"> <a href="/admin" class="nav-link"><i class="fa fa-home text-danger"></i>Dashboard</a>
+                            <li class="nav-item"> <a href="{{route('admin.index')}}" class="nav-link"><i class="fa fa-home text-danger"></i>Dashboard</a>
                             </li>
                             <li><a><i class="fa fa-money text-success"></i>Payment<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -37,10 +37,10 @@
                                     <li><a href="index3.html">Completed payment</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"> <a href="admin/menu" class="nav-link"><i class="fa fa-table text-warning"></i>Menus</a>
+                            <li class="nav-item"> <a href="{{route('admin.menu.index')}}" class="nav-link"><i class="fa fa-table text-warning"></i>Menus</a>
                             </li>
 
-                            <li class="nav-item"> <a href="admin/content" class="nav-link"><i class="fa fa-folder text-warning"></i>Contents</a>
+                            <li class="nav-item"> <a href="{{route('admin.content.index')}}" class="nav-link"><i class="fa fa-folder text-warning"></i>Contents</a>
                             </li>
 
                             <li class="nav-item"> <a href="admin/comment" class="nav-link"><i class="fa fa-comment text-warning"></i>Comments</a>
@@ -49,7 +49,7 @@
                             <li class="nav-item"> <a href="admin/faq" class="nav-link"><i class="fa fa-question text-warning"></i>FAQ</a>
                             </li>
 
-                            <li class="nav-item"> <a href="admin/messages" class="nav-link"><i class="fa fa-paper-plane text-warning"></i>Messages</a>
+                            <li class="nav-item"> <a href="{{route('admin.message.index')}}" class="nav-link"><i class="fa fa-paper-plane text-warning"></i>Messages</a>
                             </li>
 
                             <li class="nav-item"> <a href="admin/users" class="nav-link"><i class="fa fa-user text-warning"></i>Users</a>
