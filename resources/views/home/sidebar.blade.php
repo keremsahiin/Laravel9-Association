@@ -79,6 +79,30 @@
                 </div>
             </div>
         </div>
+        <!--deneme alanı -->
+        <div class="navbar-nav ml-auto">
+            <li class="nav-item dropdown nav-user">
+
+                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                     aria-labelledby="navbarDropdownMenuLink2">
+                    @auth
+                        <div class="nav-user-info">
+
+                            <h6 class="mb-1 text-black nav-user-name">
+                                {{Auth::user()->name}} </h6>
+                        </div>
+                        <a class="dropdown-item" href="/logoutuser"><i class="fas fa-user mr-2"></i>Logout</a>
+                    @endauth
+                    @guest
+                        <a class="dropdown-item" href="/loginuser"><i class="fas fa-user mr-2"></i>Login</a>
+                        <a class="dropdown-item" href="/registeruser"><i class="fas fa-edit "></i>Register</a>
+                    @endguest
+                </div>
+            </li>
+        </div>
     </div>
 </div>
 <!-- Nav Bar End -->
+

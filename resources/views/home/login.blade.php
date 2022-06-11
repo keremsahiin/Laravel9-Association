@@ -1,9 +1,7 @@
 @extends('layouts.frontbase')
 
-@section('title','About Us | '. $setting->title)
-@section('keywords', $setting->keywords)
-@section('description', $setting->description)
-@section('icon', \Illuminate\Support\Facades\Storage::url($setting->icon))
+@section('title','User Login ')
+
 
 @section('sidebar')
     @include('home.sidebar')
@@ -15,11 +13,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>About Us</h2>
+                    <h2>Login</h2>
                 </div>
                 <div class="col-12">
                     <a href="{{route('home')}}">Home</a>
-                    <a href="{{route('references')}}">About Us</a>
+                     <a>User Login</a>
                 </div>
             </div>
         </div>
@@ -30,7 +28,7 @@
         <div class="container">
 
 
-                {!! $setting->aboutus !!}
+                @include('auth.login')
 
 
         </div>
