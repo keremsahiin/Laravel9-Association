@@ -69,9 +69,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //********************USERS AUTH CONTROL ******************
     Route::middleware('auth')->group(function (){
 
-        //********************USER ROUTES ******************
+        //********************USER PANEL ROUTES ******************
         Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(callback: function () {
             Route::get('/','index')->name('index');
+            Route::get('/comments','comments')->name('comments');
+            Route::get('/commentdestroy/{id}','commentdestroy')->name('commentdestroy');
 
         });
 

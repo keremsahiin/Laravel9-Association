@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title','Contact Panel')
+@section('title','User Panel')
 
 @section('sidebar')
     @include('home.sidebar')
@@ -12,11 +12,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>Contact</h2>
+                    <h2>User</h2>
                 </div>
                 <div class="col-12">
                     <a href="{{route('home')}}">Home</a>
-                    <a>User Panel</a>
+                    <a>My Profile</a>
                 </div>
             </div>
         </div>
