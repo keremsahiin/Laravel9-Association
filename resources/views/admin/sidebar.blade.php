@@ -52,7 +52,7 @@
                             <li class="nav-item"> <a href="{{route('admin.message.index')}}" class="nav-link"><i class="fa fa-paper-plane text-warning"></i>Messages</a>
                             </li>
 
-                            <li class="nav-item"> <a href="admin/users" class="nav-link"><i class="fa fa-user text-warning"></i>Users</a>
+                            <li class="nav-item"> <a href="{{route('admin.user.index')}}" class="nav-link"><i class="fa fa-user text-warning"></i>Users</a>
                             </li>
 
                             <li class="nav-item"> <a href="admin/social" class="nav-link"><i class="fa fa-share-alt text-warning"></i>Social</a>
