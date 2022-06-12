@@ -77,54 +77,60 @@
         </div>
     </div>
     <!-- About End -->
-
-
-    <!-- Facts Start -->
-    <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-home"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">150</h3>
-                            <p>Countries</p>
+    <!-- Donate Start -->
+    <div class="container">
+        <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="donate-content">
+                        <div class="section-header">
+                            <p>Donate Now</p>
+                            <h2>Let's donate to needy people for better lives</h2>
+                        </div>
+                        <div class="donate-text">
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-charity"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">400</h3>
-                            <p>Volunteers</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-kindness"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-dollar" data-toggle="counter-up">10000</h3>
-                            <p>Our Goal</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-donation"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-dollar" data-toggle="counter-up">5000</h3>
-                            <p>Raised</p>
-                        </div>
+                <div class="col-lg-5">
+                    <div class="donate-form">
+                        @include('home.messages')
+                        <form action="{{route('storepayment')}}" method="post">
+                            @csrf
+                            <input type="hidden" class="input" name="user_id" value="{{$data->id}}">
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="year" name="year" placeholder="Year" required="required">
+                            </div>
+                            <div class="control-group">
+                                <textarea id="note" name="note" placeholder="Note" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                                <div class="form-group">
+                                    <div class="input-rating">
+                                        <strong class="text-uppercase"> Your Donate (5-30): </strong>
+                                        <div class="stars">
+                                            <input type="radio" id="star5" name="payment" value="5" /> $5<label for="star5"></label>
+                                            <input type="radio" id="star4" name="payment" value="10" /> $10<label for="star4"></label>
+                                            <input type="radio" id="star3" name="payment" value="20" /> $20<label for="star3"></label>
+                                            <input type="radio" id="star2" name="payment" value="30" /> $30<label for="star2"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            @auth()
+                                <div>
+                                    <input class="btn btn-custom" type="submit"value="Donate Now">
+                                </div>
+                            @else
+                                <a href="/login" class="btn btn-custom">For Submit Your Review , Please Login</a>
+                            @endauth
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Facts End -->
-
-
+    <!-- Donate End -->
     <!-- Team Start -->
     <div class="team">
         <div class="container">
@@ -271,6 +277,4 @@
             </div>
         </div>
 </div>
-
-
 @endsection

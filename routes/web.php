@@ -6,7 +6,9 @@ use App\Http\Controllers\AdminPanel\CommentController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\AdminPanel\PaymentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentCartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -40,6 +42,7 @@ Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
 Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 Route::post('/storecomment',[HomeController::class,'storecomment'])->name('storecomment');
+Route::post('/storepayment',[HomeController::class,'storepayment'])->name('storepayment');
 Route::view('/loginuser','home.login')->name('loginuser');
 Route::view('/registeruser','home.register')->name('registeruser');
 Route::get('/logoutuser',[HomeController::class,'logout'])->name('logoutuser');
@@ -138,6 +141,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
                 Route::get('/','index')->name('index');
                 Route::post('/update/{id}','update')->name('update');
                 Route::get('/destroy/{id}','destroy')->name('destroy');
+                Route::get('/show/{id}','show')->name('show');
+            });
+
+            //********************ADMİN PAYMENT ROUTES ******************
+            Route::prefix('/payment')->name('payment.')->controller(PaymentController::class)->group(function (){
+                Route::get('/','index')->name('index');
+                Route::post('/update/{id}','update')->name('update');
                 Route::get('/show/{id}','show')->name('show');
             });
 

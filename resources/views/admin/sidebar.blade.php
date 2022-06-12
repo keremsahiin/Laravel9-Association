@@ -33,8 +33,7 @@
                             </li>
                             <li><a><i class="fa fa-money text-success"></i>Payment<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="index2.html">Accepted payment</a></li>
-                                    <li><a href="index3.html">Completed payment</a></li>
+                                    <li><a href="{{route('admin.payment.index')}}">Accepted payment</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"> <a href="{{route('admin.menu.index')}}" class="nav-link"><i class="fa fa-table text-warning"></i>Menus</a>

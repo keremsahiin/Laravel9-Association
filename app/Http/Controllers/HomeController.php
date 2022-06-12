@@ -7,6 +7,7 @@ use App\Models\Content;
 use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Message;
+use App\Models\Payment;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -101,15 +102,30 @@ class HomeController extends Controller
 
     }
 
+    public function storepayment(Request $request){
+        // dd($request); // Chech your values
+        $data = new Payment();
+        $data->user_id = Auth::id(); // Logged in user id
+        $data->year = $request->input('year');
+        $data->payment = $request->input('payment');
+        $data->note = $request->input('note');
+        $data->save();
+
+        return redirect()->back()->with('success','Your donate has been sent , Thank you.');
+
+    }
+
     public function content($id){
 
         $data=Content::find($id);
         $comments = Comment::where('content_id',$id)->where('status','True')->get();
+        $payments = Payment::where('status','True')->get();
         $images = DB::table('images')->where('content_id', $id)->get();
         return view('home.content',[
             'data'=>$data,
             'images'=>$images,
-            'comments'=>$comments
+            'comments'=>$comments,
+            'payments'=>$payments
         ]);
     }
 
